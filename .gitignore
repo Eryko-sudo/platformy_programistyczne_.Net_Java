@@ -24,8 +24,10 @@ hs_err_pid*
 replay_pid*
 
 # My ignored files
+.idea
 lab00/.vs
 lab00/bin
 lab00/obj
-.idea
-
+KnapsackFreeCodeCamp/.vs
+KnapsackFreeCodeCamp/bin
+KnapsackFreeCodeCamp/obj
