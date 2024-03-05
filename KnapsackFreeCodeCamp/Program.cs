@@ -19,37 +19,14 @@
             int[] values = new int[] { 0, 50, 150, 210, 30 };
 
             // Stores the table made on paper
-            int[,] data = new int[5, 11];
-
 
             const int numberOfItems = 4;
 
-            const int maxCapacity = 10;
+            Knapsack aKnapsack = new Knapsack(10);
 
-            for (int itemNum = 0; itemNum <= numberOfItems; itemNum++)
-            {
-                for (int capacity = 0; capacity <= maxCapacity; capacity++)
-                {
-                    // For the first row and collumn
-                    if (itemNum == 0 || capacity == 0)
-                    {
-                        data[itemNum, capacity] = 0;
-                    }
-                    // Find the max value
-                    else if (weights[itemNum] <= capacity)
-                    {
-                        data[itemNum, capacity] = Math.Max(values[itemNum] + data[itemNum - 1, capacity - weights[itemNum]],
-                                                                             data[itemNum - 1, capacity]);
-                    }
-                    // Max value form previous row because weight doesn't fit capacity
-                    else
-                    {
-                        data[itemNum, capacity] = data[itemNum - 1, capacity];
-                    }
-                }
-            }
+            int maxValue = aKnapsack.max_value(numberOfItems, weights, values);
 
-            Console.WriteLine($"Max value of items included in container: {data[numberOfItems, maxCapacity]}");
+            Console.WriteLine($"Max value of items included in container: {maxValue}");
             Console.ReadKey();
         }
     }
