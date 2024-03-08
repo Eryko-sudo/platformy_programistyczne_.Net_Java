@@ -53,7 +53,7 @@ namespace Lab01
                     knapsack.itemCount++;
                 }
             }
-            return items;
+            return knapsack.ListOfItems;
         }
     }
 }
