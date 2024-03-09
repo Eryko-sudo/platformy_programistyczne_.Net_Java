@@ -6,6 +6,8 @@
         public int seed;
 
         public List<Item> items = new List<Item>();
+        public List<Item> solvedItems = new List<Item>();
+
 
         public Problem(int itemCount, int seed)
         {
@@ -31,7 +33,6 @@
 
         public List<Item> Solve(int size)
         {
-            List<Item>? solvedItems = null;
 
             items.Sort((x, y) => (y.value * 1.0 / y.weight).CompareTo(x.value * 1.0 / x.weight)); // Overload
 
@@ -44,6 +45,17 @@
                 }
             }
             return solvedItems;
+        }
+
+        public override string ToString()
+        {
+            string itemsInfo = "Items in knapsack:\n";
+            foreach (var item in items)
+            {
+                itemsInfo += $"Id: {item.index}, Value: {item.value}, Weight: {item.weight}\n";
+            }
+
+            return itemsInfo;
         }
     }
 
