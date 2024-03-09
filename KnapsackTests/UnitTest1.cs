@@ -6,7 +6,7 @@ namespace KnapsackTests
     public class UnitTest1
     {
         [TestMethod]
-        public void Solve_AtLeastOneItem_FoundAtLeastOneItem()
+        public void AtLeastOneItemFound()
         {
             Problem problem = new Problem(5, 1);
             problem.RandomizeProblem();
@@ -17,7 +17,7 @@ namespace KnapsackTests
         }
 
         [TestMethod]
-        public void Solve_EmptyItemList_ReturnsEmptySolution()
+        public void EmptyItemListReturnsEmptySolution()
         {
             Problem problem = new Problem(0, 1);
 
@@ -27,7 +27,7 @@ namespace KnapsackTests
         }
 
         [TestMethod]
-        public void Solve_KnapsackSizeLessThanMinimumWeight_ReturnsEmptySolution()
+        public void KnapsackSizeLessThanMinimumWeightReturnsEmptySolution()
         {
             Problem problem = new Problem(3, 1);
             problem.items = new List<Item>
@@ -45,7 +45,7 @@ namespace KnapsackTests
 
 
         [TestMethod]
-        public void Solve_NoItemMeetsConstraints_ReturnsEmptySolution()
+        public void KnapsackSizeEqualZeroReturnsEmptySolution()
         {
             Problem problem = new Problem(5, 1);
             problem.RandomizeProblem();
@@ -56,7 +56,7 @@ namespace KnapsackTests
         }
 
         [TestMethod]
-        public void Solve_OrderOfItems_DoesNotAffectSolution()
+        public void OrderOfItemsDoesNotAffectSolution()
         {
             Problem problem1 = new Problem(5, 1);
             Problem problem2 = new Problem(5, 1);
@@ -70,7 +70,7 @@ namespace KnapsackTests
         }
 
         [TestMethod]
-        public void Solve_IncreasingKnapsackSize_ReturnsMoreItems()
+        public void IncreasingKnapsackSizeReturnsMoreItems()
         {
             Problem problem1 = new Problem(5, 1);
             problem1.RandomizeProblem();
@@ -84,7 +84,7 @@ namespace KnapsackTests
         }
 
         [TestMethod]
-        public void Solve_AllItemsEqualValueAndWeight_ReturnsAllItems()
+        public void AllItemsEqualValueAndWeightReturnsAllItems()
         {
             Problem problem = new Problem(3, 123);
             problem.items = new List<Item>
@@ -102,7 +102,7 @@ namespace KnapsackTests
 
 
         [TestMethod]
-        public void Solve_SpecificInstance_CorrectSolution()
+        public void AnInstanceReturnsACorrectSolution()
         {
             Problem problem = new Problem(5, 1);
             problem.items = new List<Item>
