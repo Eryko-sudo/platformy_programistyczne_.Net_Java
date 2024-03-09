@@ -24,7 +24,7 @@
 
             Knapsack aKnapsack = new Knapsack(10);
 
-            int maxValue = aKnapsack.max_value(numberOfItems, weights, values);
+            int maxValue = aKnapsack.Max_value(numberOfItems, weights, values);
 
             Console.WriteLine($"Max value of items included in container: {maxValue}");
             Console.ReadKey();
