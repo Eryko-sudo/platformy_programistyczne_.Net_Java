@@ -19,12 +19,12 @@ namespace Lab01
             ListOfResults = List;
         }
 
-        public void PrintKnapsackContents(List<Item> knapsackItems) // ToString
+        public void PrintKnapsackContents() // ToString
         {
-            knapsackItems.Sort((x, y) => (y.value * 1.0 / y.weight).CompareTo(x.value * 1.0 / x.weight));
+            ListOfResults.Sort((x, y) => (y.value * 1.0 / y.weight).CompareTo(x.value * 1.0 / x.weight));
 
             Console.WriteLine("List of items inside the knapsack:");
-            foreach (var item in knapsackItems)
+            foreach (var item in ListOfResults)
             {
                 Console.WriteLine($"Nr. {item.index}        Value: {item.value}      Weight: {item.weight}");
                 totalValue += item.value;
