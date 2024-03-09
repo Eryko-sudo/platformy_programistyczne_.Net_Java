@@ -1,4 +1,8 @@
-﻿namespace KnapsackProblem
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("KnapsackTests")]
+
+namespace KnapsackProblem
 {
     internal class Problem
     {
