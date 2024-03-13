@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("KnapsackTests")]
+[assembly: InternalsVisibleTo("KnapsackTests"), InternalsVisibleTo("KnapsackGUI")]
 
 namespace KnapsackProblem
 {
@@ -26,8 +26,8 @@ namespace KnapsackProblem
 
             for (int i = 0; i < itemCount; i++)
             {
-                int value = r.Next(1, 10);
-                int weight = r.Next(1, 10);
+                int weight = r.Next(1, 11);
+                int value = r.Next(1, 11);
 
                 Item newItem = new Item(value, weight, i + 1);
                 items.Add(newItem);
@@ -53,10 +53,13 @@ namespace KnapsackProblem
 
         public override string ToString()
         {
-            string itemsInfo = "Items in knapsack:\n";
+            string itemsInfo = " ";
+
             foreach (var item in items)
             {
-                itemsInfo += $"Id: {item.index}, Value: {item.value}, Weight: {item.weight}\n";
+                itemsInfo += $"Id: {item.index}, Value: {item.value}, Weight: {item.weight}";
+                itemsInfo += Environment.NewLine;
+
             }
 
             return itemsInfo;

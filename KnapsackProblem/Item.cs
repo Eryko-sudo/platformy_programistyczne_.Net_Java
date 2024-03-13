@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("KnapsackTests")]
+[assembly: InternalsVisibleTo("KnapsackTests"), InternalsVisibleTo("KnapsackGUI")]
 
 namespace KnapsackProblem
 {
