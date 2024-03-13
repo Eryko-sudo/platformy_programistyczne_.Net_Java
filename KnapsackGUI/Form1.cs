@@ -11,9 +11,12 @@ namespace KnapsackGUI
         public bool verifySeed = false;
         public bool verifyCapacity= false;
 
+
+
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -21,12 +24,22 @@ namespace KnapsackGUI
 
             if(int.TryParse(textBox1.Text, out inputNumberOfItems) ) { textBox1.BackColor = SystemColors.Window; verifyNumberOfItems = true; }
             else { textBox1.BackColor = Color.Red; verifyNumberOfItems = false; }
+            if (verifyNumberOfItems && verifyCapacity && verifySeed)
+            {
+                button1.Enabled = true;
+            }
+            else { button1.Enabled = false; }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(textBox2.Text, out inputSeed)) { textBox2.BackColor = SystemColors.Window; verifySeed = true; }
             else { textBox2.BackColor = Color.Red; verifySeed = false; }
+            if (verifyNumberOfItems && verifyCapacity && verifySeed)
+            {
+                button1.Enabled = true;
+            }
+            else { button1.Enabled = false; }
 
         }
 
@@ -34,6 +47,11 @@ namespace KnapsackGUI
         {
             if (int.TryParse(textBox3.Text, out inputSize)) { textBox3.BackColor = SystemColors.Window; verifyCapacity = true; }
             else { textBox3.BackColor = Color.Red; verifyCapacity = false; }
+            if (verifyNumberOfItems && verifyCapacity && verifySeed)
+            {
+                button1.Enabled = true;
+            }
+            else { button1.Enabled = false; }
 
         }
 
@@ -54,6 +72,7 @@ namespace KnapsackGUI
 
 
         }
+        
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
