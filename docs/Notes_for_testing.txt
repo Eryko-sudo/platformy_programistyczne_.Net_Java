@@ -1,0 +1,5 @@
+For tests:
+- Don't put the test folder inside the project folder
+- Add using example: using KnapsackProblem, to UnitTest
+- Project -> Add Project Refrence
+- Add example: [assembly: InternalsVisibleTo("KnapsackTests")], to every tested class

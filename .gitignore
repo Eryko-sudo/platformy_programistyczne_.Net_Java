@@ -26,12 +26,6 @@ replay_pid*
 # My ignored files
 .idea
 .vs
-lab00/.vs
-lab00/bin
-lab00/obj
-KnapsackFreeCodeCamp/.vs
-KnapsackFreeCodeCamp/bin
-KnapsackFreeCodeCamp/obj
-lab01/.vs
-lab01/bin
-lab01/obj
+*/.vs
+*/obj
+*/bin
