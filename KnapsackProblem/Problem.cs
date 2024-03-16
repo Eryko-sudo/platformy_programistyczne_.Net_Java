@@ -38,7 +38,7 @@ namespace KnapsackProblem
         public List<Item> Solve(int size)
         {
 
-            items.Sort((x, y) => (y.value * 1.0 / y.weight).CompareTo(x.value * 1.0 / x.weight)); // Overload
+            items.Sort((x, y) => (y.value * 1.0 / y.weight).CompareTo(x.value * 1.0 / x.weight));
 
             foreach (var item in items)
             {
