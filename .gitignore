@@ -26,6 +26,8 @@ replay_pid*
 # My ignored files
 .idea
 .vs
-*/.vs
-*/obj
-*/bin
+/.idea
+/.vs
+*/*/.vs
+*/*/obj
+*/*/bin
