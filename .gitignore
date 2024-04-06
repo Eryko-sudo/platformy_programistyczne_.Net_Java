@@ -26,14 +26,11 @@ replay_pid*
 # My ignored files
 .idea
 .vs
-<<<<<<< Updated upstream
-=======
 /.idea
 /.vs
 */*/.vs
 */*/obj
 */*/bin
->>>>>>> Stashed changes
 */.vs
 */obj
 */bin
