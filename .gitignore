@@ -31,3 +31,6 @@ replay_pid*
 */*/.vs
 */*/obj
 */*/bin
+*/.vs
+*/obj
+*/bin
