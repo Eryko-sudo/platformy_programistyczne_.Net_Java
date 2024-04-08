@@ -7,30 +7,32 @@
 
         static void Main(string[] args)
         {
-            int nThreads = 10;
-            Thread[] threads = new Thread[nThreads];
-            for (int i = 0; i < nThreads; i++) threads[i] = new Thread(Counting);
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-            foreach (Thread t in threads) { t.Start(); }
-            foreach (Thread t in threads) { t.Join(); }
-            watch.Stop();
-            Console.WriteLine($"{count} threads ended in {watch.ElapsedMilliseconds} ms.");
+            int nThreads = 4;
+            Matrix A = new Matrix(5, 16);
+            Matrix B = new Matrix(16, 5);
 
+            Matrix C = new Matrix(A.rows, B.columns);
+            Matrix D = new Matrix(A.rows, B.columns);
+            var watch_threads = System.Diagnostics.Stopwatch.StartNew();
+            C.data = Matrix.Multiply_threads(A, B, nThreads);
+            watch_threads.Stop();
 
+            var watch_parallel = System.Diagnostics.Stopwatch.StartNew();
+            D.data = Matrix.Multiply_parallel(A, B, nThreads);
+            watch_parallel.Stop();
 
-            Matrix myMatrix = new Matrix(5, 4);
-            myMatrix.ToString();
-        }
+            //Console.WriteLine("Matrix A ------------------------------------");
+            //A.ToString();
+            //Console.WriteLine("Matrix B ------------------------------------");
+            //B.ToString();
+            Console.WriteLine("Matrix C ------------------------------------");
+            C.ToString();
+            Console.WriteLine("Matrix D ------------------------------------");
+            D.ToString();
 
-        static void Counting()
-        {
-            Thread.Sleep(500);
-            lock (locker)
-            {
-                var tmp = count;
-                Thread.Sleep(500);
-                count = tmp + 1;
-            }
+            Console.WriteLine($"{nThreads} threads for threads ended in {watch_threads.ElapsedMilliseconds} ms.");
+            Console.WriteLine($"{nThreads} threads for parallel ended in {watch_parallel.ElapsedMilliseconds} ms.");
+
         }
     }
 }
