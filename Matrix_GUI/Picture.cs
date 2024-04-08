@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Matrix_GUI
 {
-    internal class Pixel
+    internal class Picture
     {
+        public Picture() { }
     }
 }
