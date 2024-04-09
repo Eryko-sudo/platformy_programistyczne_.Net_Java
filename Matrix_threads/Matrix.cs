@@ -97,6 +97,7 @@
             ParallelOptions opt = new ParallelOptions()
             {
                 MaxDegreeOfParallelism = nThreads
+                //MaxDegreeOfParallelism = Environment.ProcessorCount
             };
 
             Parallel.For(0, A.rows, i =>
