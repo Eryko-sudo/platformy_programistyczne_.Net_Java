@@ -92,7 +92,7 @@
                 //MaxDegreeOfParallelism = Environment.ProcessorCount
             };
 
-            Parallel.For(0, A.rows, i =>
+            Parallel.For(0, A.rows, opt, i =>
             {
                 for (int j = 0; j < B.columns; j++)
                 {
