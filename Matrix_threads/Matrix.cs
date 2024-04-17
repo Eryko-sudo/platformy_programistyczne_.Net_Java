@@ -32,27 +32,21 @@
             {
                 throw new ArgumentException("Incompatible matrix size!");
             }
-
             int[,] result = new int[A.rows, B.columns];
-
             Thread[] threads = new Thread[nThreads];
-
             int index = 0;
             int rowsPerThread = A.rows / nThreads;
             int remainingRows = A.rows % nThreads;
             int startingRow = 0;
-
             for (int i = 0; i < nThreads; i++)
             {
                 int rowCount = rowsPerThread + (i < remainingRows ? 1 : 0);
-
                 threads[index] = new Thread((object obj) =>
                 {
                     Tuple<int, int, int> parameters = (Tuple<int, int, int>)obj;
                     int start = parameters.Item1;
                     int end = parameters.Item2;
                     int threadIndex = parameters.Item3;
-
                     for (int w = start; w < end; w++)
                     {
                         for (int j = 0; j < B.columns; j++)
@@ -73,7 +67,6 @@
                 startingRow += rowCount;
                 index++;
             }
-
             foreach (Thread thread in threads)
             {
                 if (thread != null)
@@ -81,7 +74,6 @@
                     thread.Join();
                 }
             }
-
             return result;
         }
 

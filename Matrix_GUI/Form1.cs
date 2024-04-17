@@ -27,6 +27,7 @@ namespace Matrix_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Filter = "JPG files (.jpg)|*.jpg";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.ShowDialog();
             var file = openFileDialog1.FileName;
@@ -35,8 +36,6 @@ namespace Matrix_GUI
                 OriginalImg = new Bitmap(file);
                 pictureBox1.Image = OriginalImg;
             }
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)

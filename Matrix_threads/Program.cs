@@ -6,7 +6,9 @@ namespace Matrix_threads
     {
         static void Main(string[] args)
         {
+            int x = 10;    
             int tryCount = 5;
+
             int[] nThreadsList = { 1, 2, 4, 8 };
             TimeSpan[] threadSum = new TimeSpan[nThreadsList.Length];
             TimeSpan[] parallelSum = new TimeSpan[nThreadsList.Length];
@@ -19,8 +21,8 @@ namespace Matrix_threads
                 for (int i = 0; i < tryCount; i++)
                 {
 
-                    Matrix A = new Matrix(200, 2000);
-                    Matrix B = new Matrix(2000, 200);
+                    Matrix A = new Matrix(x, x);
+                    Matrix B = new Matrix(x, x);
 
                     Matrix C = new Matrix(A.rows, B.columns);
                     Matrix D = new Matrix(A.rows, B.columns);
@@ -41,12 +43,12 @@ namespace Matrix_threads
                 threadTime[j] = TimeSpan.FromMilliseconds(threadSum[j].TotalMilliseconds / tryCount);
                 parallelTime[j] = TimeSpan.FromMilliseconds(parallelSum[j].TotalMilliseconds / tryCount);
             }
-
+            Console.WriteLine($"Results of multiplication of {x} by {x} matrices: ");
             Console.WriteLine("Threads\tThreads Time (ms)\tParallel Time (ms)");
 
             for (int k = 0; k < nThreadsList.Length; k++)
             {
-                Console.WriteLine($"{nThreadsList[k]}\t{threadTime[k].TotalMilliseconds}\t\t{parallelTime[k].TotalMilliseconds}");
+                Console.WriteLine($"{nThreadsList[k]}\t{threadTime[k].TotalMilliseconds}\t\t\t{parallelTime[k].TotalMilliseconds}");
             }
         }
     }
