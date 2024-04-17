@@ -1,35 +1,54 @@
-﻿namespace Matrix_threads
+﻿using System.Diagnostics;
+
+namespace Matrix_threads
 {
     internal class Program
     {
-        public static volatile int count = 0;
-        public static readonly object locker = new object();
-
         static void Main(string[] args)
         {
-            int nThreads = 10;
-            Thread[] threads = new Thread[nThreads];
-            for (int i = 0; i < nThreads; i++) threads[i] = new Thread(Counting);
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-            foreach (Thread t in threads) { t.Start(); }
-            foreach (Thread t in threads) { t.Join(); }
-            watch.Stop();
-            Console.WriteLine($"{count} threads ended in {watch.ElapsedMilliseconds} ms.");
+            int x = 10;    
+            int tryCount = 5;
 
+            int[] nThreadsList = { 1, 2, 4, 8 };
+            TimeSpan[] threadSum = new TimeSpan[nThreadsList.Length];
+            TimeSpan[] parallelSum = new TimeSpan[nThreadsList.Length];
+            TimeSpan[] threadTime = new TimeSpan[nThreadsList.Length];
+            TimeSpan[] parallelTime = new TimeSpan[nThreadsList.Length];
 
-
-            Matrix myMatrix = new Matrix(5, 4);
-            myMatrix.ToString();
-        }
-
-        static void Counting()
-        {
-            Thread.Sleep(500);
-            lock (locker)
+            for (int j = 0; j < nThreadsList.Length; j++)
             {
-                var tmp = count;
-                Thread.Sleep(500);
-                count = tmp + 1;
+                int nThreads = nThreadsList[j];
+                for (int i = 0; i < tryCount; i++)
+                {
+
+                    Matrix A = new Matrix(x, x);
+                    Matrix B = new Matrix(x, x);
+
+                    Matrix C = new Matrix(A.rows, B.columns);
+                    Matrix D = new Matrix(A.rows, B.columns);
+
+                    var watch_threads = Stopwatch.StartNew();
+                    C.data = Matrix.Multiply_threads(A, B, nThreads);
+                    watch_threads.Stop();
+
+                    threadSum[j] += watch_threads.Elapsed;
+
+                    var watch_parallel = Stopwatch.StartNew();
+                    D.data = Matrix.Multiply_parallel(A, B, nThreads);
+                    watch_parallel.Stop();
+
+                    parallelSum[j] += watch_parallel.Elapsed;
+                }
+
+                threadTime[j] = TimeSpan.FromMilliseconds(threadSum[j].TotalMilliseconds / tryCount);
+                parallelTime[j] = TimeSpan.FromMilliseconds(parallelSum[j].TotalMilliseconds / tryCount);
+            }
+            Console.WriteLine($"Results of multiplication of {x} by {x} matrices: ");
+            Console.WriteLine("Threads\tThreads Time (ms)\tParallel Time (ms)");
+
+            for (int k = 0; k < nThreadsList.Length; k++)
+            {
+                Console.WriteLine($"{nThreadsList[k]}\t{threadTime[k].TotalMilliseconds}\t\t\t{parallelTime[k].TotalMilliseconds}");
             }
         }
     }
