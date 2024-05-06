@@ -7,6 +7,7 @@
         public string Description { get; set; }
         public DateTime ReleaseDate { get; set; }
         public float Rate { get; set; }
+        public string ImageUrl { get; set; }
     }
 
 

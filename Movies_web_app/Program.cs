@@ -14,6 +14,7 @@ builder.Services.AddAuthentication(
     CertificateAuthenticationDefaults.AuthenticationScheme)
     .AddCertificate();
 
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
