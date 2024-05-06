@@ -6,8 +6,8 @@ namespace Matrix_threads
     {
         static void Main(string[] args)
         {
-            int x = 10;    
-            int tryCount = 5;
+            int x = 1000;    
+            int tryCount = 3;
 
             int[] nThreadsList = { 1, 2, 4, 8 };
             TimeSpan[] threadSum = new TimeSpan[nThreadsList.Length];

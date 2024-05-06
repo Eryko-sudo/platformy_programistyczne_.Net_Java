@@ -27,8 +27,8 @@ namespace Matrix_GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "JPG files (.jpg)|*.jpg";
-            openFileDialog1.FilterIndex = 1;
+            //openFileDialog1.Filter = "JPG files (.jpg)|*.jpg";
+            //openFileDialog1.FilterIndex = 1;
             openFileDialog1.ShowDialog();
             var file = openFileDialog1.FileName;
             if (file != null)
