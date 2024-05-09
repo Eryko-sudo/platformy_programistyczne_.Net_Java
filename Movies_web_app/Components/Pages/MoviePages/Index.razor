@@ -55,9 +55,7 @@
             moviesQuery = moviesQuery.OrderBy(movie => movie.Rate);
             ascending = false;
         }
-        gridKey++; // zwiekszenie klucza daje sygnal quickGrid ze pora sie przeladowac, framework 
-        // wie ze stary element jest juz przedawniony i nalezy wyrenderowac go ponownie bo zrodlo danych 
-        // Items uleglo zmianie
+        gridKey++;
 
         StateHasChanged();
     }

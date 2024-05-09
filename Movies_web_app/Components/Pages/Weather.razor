@@ -18,6 +18,10 @@ else
     <button class="btn btn-primary" @onclick="WarmDaysFilter">Filter Warm Days</button>
     <button class="btn btn-primary" @onclick="Restore">Restore</button>
     <br />
+
+    <input class="form-control" @oninput="@Input" />
+
+    <br />
     <br />
 
     <table class="table">
@@ -43,7 +47,6 @@ else
     </table>
 }
 
-<input class="form-control" @oninput="@Input" />
 
 @code {
     private WeatherForecast[]? forecasts;
