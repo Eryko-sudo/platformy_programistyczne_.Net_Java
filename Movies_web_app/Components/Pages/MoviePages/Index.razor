@@ -1,0 +1,81 @@
+﻿@page "/movies"
+@using Movies_web_app.Data
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Microsoft.EntityFrameworkCore;
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@attribute [StreamRendering]
+@rendermode InteractiveServer
+@inject ApplicationDbContext DB
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="movies/create">Create New</a>
+</p>
+
+<button class="btn btn-primary" @onclick="SortByRatings">Sort by ratings</button>
+<button class="btn btn-primary" @onclick="SortByTitle">Sort by title</button>
+
+
+<QuickGrid Class="table" Items="moviesQuery" @key="gridKey">
+    <PropertyColumn Property="movie => movie.Title" />
+    <PropertyColumn Property="movie => movie.Rate" />
+
+    <TemplateColumn Context="movie">
+        <a href="@($"movies/edit?id={movie.Id}")">Edit</a> |
+        <a href="@($"movies/details?id={movie.Id}")">Details</a> |
+        <a href="@($"movies/delete?id={movie.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+
+
+
+@code {
+    private IQueryable<Movie> moviesQuery;
+    private int gridKey = 0; // Klucz do przeladowania komponentu QuickGrid
+
+    protected override async Task OnInitializedAsync()
+    {
+        moviesQuery = DB.Movie.AsNoTracking();
+    }
+
+    private void SortByRatings()
+    {
+        if (!ascending)
+        {
+            moviesQuery = moviesQuery.OrderByDescending(movie => movie.Rate);
+            ascending = true;
+        }
+        else
+        {
+            moviesQuery = moviesQuery.OrderBy(movie => movie.Rate);
+            ascending = false;
+        }
+        gridKey++;
+
+        StateHasChanged();
+    }
+
+    private void SortByTitle()
+	{
+		if (!ascending)
+		{
+			moviesQuery = moviesQuery.OrderByDescending(movie => movie.Title);
+			ascending = true;
+		}
+		else
+		{
+			moviesQuery = moviesQuery.OrderBy(movie => movie.Title);
+			ascending = false;
+		}
+		gridKey++;
+
+		StateHasChanged();
+	}
+
+    private bool ascending = false;
+}
