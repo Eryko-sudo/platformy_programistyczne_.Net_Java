@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "zaXPY5Mps6muZFPiCtxVHgCCQ4ERHE2Xx/Rgs6UmjqhRQSBC7NuyqmkJGHBpBrSDsy9+/XHxphjsWzpOG4+1VQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\eryk5\\Documents\\GitHub\\platformy_programistyczne_.Net_Java\\Lab01\\Lab01.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\eryk5\\.nuget\\packages\\google.protobuf\\3.25.3\\google.protobuf.3.25.3.nupkg.sha512"
+  ],
+  "logs": []
+}

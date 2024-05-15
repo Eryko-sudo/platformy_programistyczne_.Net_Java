@@ -1,0 +1,15 @@
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\bin\Debug\net8.0\KnapsackProblem.exe
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\bin\Debug\net8.0\KnapsackProblem.deps.json
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\bin\Debug\net8.0\KnapsackProblem.runtimeconfig.json
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\bin\Debug\net8.0\KnapsackProblem.dll
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\bin\Debug\net8.0\KnapsackProblem.pdb
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\obj\Debug\net8.0\KnapsackProblem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\obj\Debug\net8.0\KnapsackProblem.AssemblyInfoInputs.cache
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\obj\Debug\net8.0\KnapsackProblem.AssemblyInfo.cs
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\obj\Debug\net8.0\KnapsackProblem.csproj.CoreCompileInputs.cache
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\obj\Debug\net8.0\KnapsackProblem.sourcelink.json
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\obj\Debug\net8.0\KnapsackProblem.dll
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\obj\Debug\net8.0\refint\KnapsackProblem.dll
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\obj\Debug\net8.0\KnapsackProblem.pdb
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\obj\Debug\net8.0\KnapsackProblem.genruntimeconfig.cache
+C:\Users\eryk5\Documents\GitHub\platformy_programistyczne_.Net_Java\KnapsackProblem\obj\Debug\net8.0\ref\KnapsackProblem.dll

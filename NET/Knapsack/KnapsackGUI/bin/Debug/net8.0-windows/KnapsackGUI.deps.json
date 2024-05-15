@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "KnapsackGUI/1.0.0": {
+        "dependencies": {
+          "KnapsackProblem": "1.0.0"
+        },
+        "runtime": {
+          "KnapsackGUI.dll": {}
+        }
+      },
+      "KnapsackProblem/1.0.0": {
+        "runtime": {
+          "KnapsackProblem.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KnapsackGUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "KnapsackProblem/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
