@@ -1,6 +1,6 @@
 package Knapsack;
 
-public class Item implements Comparable<Item> {
+public class Item {
     private int id;
     private int weight;
     private int value;
@@ -25,9 +25,8 @@ public class Item implements Comparable<Item> {
         return value;
     }
 
-    @Override
-    public int compareTo(Item other) {
-        return Double.compare(other.ratio, this.ratio);
+    public double getRatio() {
+        return ratio;
     }
 
     @Override

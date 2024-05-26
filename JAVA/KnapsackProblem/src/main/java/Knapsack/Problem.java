@@ -27,19 +27,21 @@ public class Problem {
         }
     }
 
+    public Problem(List<Item> items) {
+        this.items = items;
+    }
+
     public Result solve(int capacity) {
-        Collections.sort(items);
+        items.sort((item1, item2) -> Double.compare(item2.getRatio(), item1.getRatio()));
         List<Item> selectedItems = new ArrayList<>();
         int totalWeight = 0;
         int totalValue = 0;
 
         for (Item item : items) {
-            if (totalWeight + item.getWeight() <= capacity) {
+            while (totalWeight + item.getWeight() <= capacity) {
                 selectedItems.add(item);
                 totalWeight += item.getWeight();
                 totalValue += item.getValue();
-            } else {
-                break;
             }
         }
 
