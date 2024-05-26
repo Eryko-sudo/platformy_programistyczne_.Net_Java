@@ -28,7 +28,7 @@ public class Problem {
     }
 
     public Problem(List<Item> items) {
-        this.items = items;
+        this.items = new ArrayList<>(items);
     }
 
     public Result solve(int capacity) {

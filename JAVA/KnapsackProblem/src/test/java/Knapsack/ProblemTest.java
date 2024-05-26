@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProblemTest {
 
+    //Sprawdzenie, czy jeśli co najmniej jeden przedmiot spełnia ograniczenia, to zwrócono co naj-
+    //mniej jeden element.
     @Test
     void testItemFitsInKnapsack() {
         Problem problem = new Problem(1, 1, 1, 10);
@@ -21,6 +23,7 @@ class ProblemTest {
         assertFalse(result.getItems().isEmpty());
     }
 
+    //Sprawdzenie, czy jeśli żaden przedmiot nie spełnia ograniczeń, to zwrócono puste rozwiązanie.
     @Test
     void testNoItemFitsInKnapsack() {
         Problem problem = new Problem(1, 1, 5, 10);
@@ -32,6 +35,8 @@ class ProblemTest {
         assertTrue(result.getTotalWeight() <= capacity);
     }
 
+    //Sprawdzenie, czy waga i wartość wszystkich przedmiotów z listy mieści się w założonym prze-
+    //dziale.
     @Test
     void testItemsFitInKnapsack() {
         Problem problem = new Problem(5, 1, 1, 10);
@@ -43,6 +48,7 @@ class ProblemTest {
         assertTrue(result.getTotalWeight() <= capacity);
     }
 
+    //Sprawdzenie poprawności wyniku (sumy wag i wartości w plecaku) dla konkretnej instancji.
     @Test
     void testProblemInstanceSum() {
         List<Item> items = List.of(
@@ -59,7 +65,7 @@ class ProblemTest {
 
         Result result = problem.solve(5);
 
-        assertTrue(totalWeight == result.getTotalWeight());
-        assertTrue(totalValue == result.getTotalValue());
+        assertEquals(totalWeight, result.getTotalWeight());
+        assertEquals(totalValue, result.getTotalValue());
     }
 }
