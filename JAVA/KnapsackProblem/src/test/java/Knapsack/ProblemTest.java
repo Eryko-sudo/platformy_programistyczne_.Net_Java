@@ -8,8 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProblemTest {
 
-    //Sprawdzenie, czy jeśli co najmniej jeden przedmiot spełnia ograniczenia, to zwrócono co naj-
-    //mniej jeden element.
+    //Sprawdzenie, czy jeśli co najmniej jeden przedmiot spełnia ograniczenia, to zwrócono co najmniej jeden element.
     @Test
     void testItemFitsInKnapsack() {
         Problem problem = new Problem(1, 1, 1, 10);
@@ -35,8 +34,7 @@ class ProblemTest {
         assertTrue(result.getTotalWeight() <= capacity);
     }
 
-    //Sprawdzenie, czy waga i wartość wszystkich przedmiotów z listy mieści się w założonym prze-
-    //dziale.
+    //Sprawdzenie, czy waga i wartość wszystkich przedmiotów z listy mieści się w założonym przedziale.
     @Test
     void testItemsFitInKnapsack() {
         Problem problem = new Problem(5, 1, 1, 10);

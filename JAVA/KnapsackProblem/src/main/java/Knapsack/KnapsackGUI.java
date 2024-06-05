@@ -3,15 +3,13 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class KnapsackGUI {
-
     public static void main(String[] args) {
         JFrame frame = new JFrame("Knapsack Problem");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 400);
-        frame.setLayout(new BorderLayout()); // Change layout to BorderLayout
+        frame.setSize(1000, 600);
+        frame.setLayout(new BorderLayout());
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(0, 2));
@@ -19,24 +17,23 @@ public class KnapsackGUI {
 
         JLabel numberOfItemTypesLabel = new JLabel("Enter the number of item types:");
         JTextField numberOfItemTypesField = new JTextField();
-        numberOfItemTypesField.setPreferredSize(new Dimension(Integer.MAX_VALUE, 10)); // Set preferred height to 20
+        numberOfItemTypesField.setPreferredSize(new Dimension(Integer.MAX_VALUE, 10));
 
         JLabel seedLabel = new JLabel("Enter the seed:");
         JTextField seedField = new JTextField();
-        numberOfItemTypesField.setPreferredSize(new Dimension(Integer.MAX_VALUE, 20)); // Set preferred height to 20
-
+        seedField.setPreferredSize(new Dimension(Integer.MAX_VALUE, 10));
 
         JLabel lowerBoundLabel = new JLabel("Enter the lower bound:");
         JTextField lowerBoundField = new JTextField();
-        lowerBoundField.setPreferredSize(new Dimension(Integer.MAX_VALUE, 20)); // Set preferred height to 20
+        lowerBoundField.setPreferredSize(new Dimension(Integer.MAX_VALUE, 10));
 
         JLabel upperBoundLabel = new JLabel("Enter the upper bound:");
         JTextField upperBoundField = new JTextField();
-        upperBoundField.setPreferredSize(new Dimension(Integer.MAX_VALUE, 20)); // Set preferred height to 20
+        upperBoundField.setPreferredSize(new Dimension(Integer.MAX_VALUE, 10));
 
         JLabel capacityLabel = new JLabel("Enter the capacity of the knapsack:");
         JTextField capacityField = new JTextField();
-        capacityField.setPreferredSize(new Dimension(Integer.MAX_VALUE, 20)); // Set preferred height to 20
+        capacityField.setPreferredSize(new Dimension(Integer.MAX_VALUE, 10));
 
         panel.add(numberOfItemTypesLabel);
         panel.add(numberOfItemTypesField);
@@ -50,47 +47,47 @@ public class KnapsackGUI {
         panel.add(capacityField);
 
         JTextArea generatedItemsArea = new JTextArea();
-        generatedItemsArea.setEditable(false); // Make the JTextArea not editable
+        generatedItemsArea.setEditable(false);
         JScrollPane generatedItemsScroll = new JScrollPane(generatedItemsArea);
         generatedItemsScroll.setBorder(new TitledBorder("Generated Items"));
 
         JTextArea knapsackItemsArea = new JTextArea();
-        knapsackItemsArea.setEditable(false); // Make the JTextArea not editable
+        knapsackItemsArea.setEditable(false);
         JScrollPane knapsackItemsScroll = new JScrollPane(knapsackItemsArea);
         knapsackItemsScroll.setBorder(new TitledBorder("Items in Knapsack"));
 
-        JPanel buttonPanel = new JPanel(new FlowLayout()); // Create a new panel with FlowLayout for the button
+        JPanel buttonPanel = new JPanel(new FlowLayout());
         JButton solveButton = new JButton("Solve");
-        solveButton.setPreferredSize(new Dimension(80, 30)); // Set the preferred size of the button
-        solveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    int numberOfItemTypes = Integer.parseInt(numberOfItemTypesField.getText());
-                    int seed = Integer.parseInt(seedField.getText());
-                    int lowerBound = Integer.parseInt(lowerBoundField.getText());
-                    int upperBound = Integer.parseInt(upperBoundField.getText());
-                    int capacity = Integer.parseInt(capacityField.getText());
+        solveButton.setPreferredSize(new Dimension(80, 30));
+        solveButton.addActionListener(e -> {
+            try {
+                int numberOfItemTypes = Integer.parseInt(numberOfItemTypesField.getText());
+                int seed = Integer.parseInt(seedField.getText());
+                int lowerBound = Integer.parseInt(lowerBoundField.getText());
+                int upperBound = Integer.parseInt(upperBoundField.getText());
+                int capacity = Integer.parseInt(capacityField.getText());
 
-                    Problem problem = new Problem(numberOfItemTypes, seed, lowerBound, upperBound);
-                    Result result = problem.solve(capacity);
-
-                    // Populate the JTextAreas with the appropriate data
-                    generatedItemsArea.setText(problem.toString());
-                    knapsackItemsArea.setText(result.toString());
-                } catch (NumberFormatException ex) {
-                    // Show a popup error message if the input is not a number
-                    JOptionPane.showMessageDialog(frame, "Please enter a valid number in all fields.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                if (lowerBound >= upperBound) {
+                    JOptionPane.showMessageDialog(frame, "Lower bound must be less than upper bound.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
+
+                Problem problem = new Problem(numberOfItemTypes, seed, lowerBound, upperBound);
+                Result result = problem.solve(capacity);
+
+                generatedItemsArea.setText(problem.toString());
+                knapsackItemsArea.setText(result.toString());
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(frame, "Please enter a valid number in all fields.", "Input Error", JOptionPane.ERROR_MESSAGE);
             }
         });
-        buttonPanel.add(solveButton); // Add the button to the new panel
+        buttonPanel.add(solveButton);
 
         panel.add(generatedItemsScroll);
         panel.add(knapsackItemsScroll);
 
-        frame.add(panel, BorderLayout.CENTER); // Add the panel to the center of the frame
-        frame.add(buttonPanel, BorderLayout.SOUTH); // Add the button panel to the south of the frame
+        frame.add(panel, BorderLayout.CENTER);
+        frame.add(buttonPanel, BorderLayout.SOUTH);
 
         frame.setVisible(true);
     }
@@ -111,6 +108,11 @@ public class KnapsackGUI {
      */
     private void $$$setupUI$$$() {
         final JPanel panel1 = new JPanel();
-        panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        panel1.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 2, new Insets(0, 0, 0, 0), -1, -1));
+        final JPanel panel2 = new JPanel();
+        panel2.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        panel1.add(panel2, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_BOTH, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        final com.intellij.uiDesigner.core.Spacer spacer1 = new com.intellij.uiDesigner.core.Spacer();
+        panel1.add(spacer1, new com.intellij.uiDesigner.core.GridConstraints(0, 1, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_WANT_GROW, 1, null, null, null, 0, false));
     }
 }
