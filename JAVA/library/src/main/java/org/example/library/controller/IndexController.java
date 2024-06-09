@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -25,10 +26,10 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/search")
-    public String search(@RequestParam("query") String query, Model model) {
+    @PostMapping("/search")
+    public String search(@RequestParam("search_term") String query, Model model) {
         List<Book> books = bookRepository.search(query);
         model.addAttribute("books", books);
-        return "index";
+        return "search";
     }
 }
