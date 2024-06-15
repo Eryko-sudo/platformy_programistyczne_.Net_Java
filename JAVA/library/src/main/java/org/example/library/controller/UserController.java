@@ -56,7 +56,7 @@ public class UserController {
             session.setAttribute("user", user);
             return "redirect:/"; // Redirect to main page
         } else {
-            model.addAttribute("error", "Invalid login or password");
+            model.addAttribute("loginError", "Invalid login or password");
             return "login";
         }
     }

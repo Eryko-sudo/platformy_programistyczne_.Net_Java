@@ -44,6 +44,9 @@
                     <input type="password" id="password" name="password" class="form-control">
                 </div>
                 <input type="submit" value="Submit" class="btn btn-primary">
+                <div th:if="${loginError}" class="alert alert-danger" role="alert">
+                    <p th:text="${loginError}"></p>
+                </div>
             </form>
         </div>
     </div>

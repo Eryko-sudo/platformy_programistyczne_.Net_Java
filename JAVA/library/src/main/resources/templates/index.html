@@ -30,10 +30,11 @@
     </div>
 </nav>
 <h1 class="text-center">Library</h1>
-<div th:if="${session.user != null}">
-    <h2>Welcome, <span th:text="${session.user.login}"></span>!</h2>
-</div>
+
 <div class="container">
+    <div th:if="${session.user != null}">
+        <h2>Welcome, <span th:text="${session.user.login}"></span>!</h2>
+    </div>
     <h2>Random Books</h2>
     <div class="row">
         <th:block th:each="book : ${books}">

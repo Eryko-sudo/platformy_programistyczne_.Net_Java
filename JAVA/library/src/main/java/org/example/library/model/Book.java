@@ -1,10 +1,10 @@
 package org.example.library.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
+import lombok.Data;
 
 @Entity
-@Getter
+@Data
 @Table(name = "book")
 public class Book {
     @Id
