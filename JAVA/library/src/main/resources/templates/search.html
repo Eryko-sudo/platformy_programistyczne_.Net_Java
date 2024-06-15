@@ -47,7 +47,7 @@
         <tbody>
         <tr th:each="book : ${books}">
             <td><img th:src="${book.url}" class="book-image" alt="Book cover"></td>
-            <td th:text="${book.title}">Book Title</td>
+            <td><a th:href="@{/book/{id}(id=${book.id_book})}" th:text="${book.title}">Book Title</a></td>
             <td th:text="${book.author}">Author Name</td>
             <!-- Add more cells as needed -->
         </tr>

@@ -16,6 +16,10 @@ public class Order {
     private Date return_by_date;
     private Date return_date;
 
+    @ManyToOne
+    @JoinColumn(name = "id_book", insertable = false, updatable = false)
+    private Book book;
+
     public Integer getId_order() {
         return id_order;
     }
@@ -62,5 +66,13 @@ public class Order {
 
     public void setReturn_date(Date return_date) {
         this.return_date = return_date;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }

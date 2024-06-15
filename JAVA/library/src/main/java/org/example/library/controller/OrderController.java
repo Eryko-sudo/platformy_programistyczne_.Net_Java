@@ -52,14 +52,4 @@ public class OrderController{
         return "redirect:/order/failure";
     }
 
-//    @GetMapping("/userOrders")
-//    public List<Order> getUserOrders(HttpServletRequest request) {
-//        HttpSession session = request.getSession();
-//        User user = (User) session.getAttribute("user");
-//        if (user != null) {
-//            return orderRepository.findAllByid_user(user.getId_user());
-//        }
-//        return new ArrayList<>();
-//    }
-
 }

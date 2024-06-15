@@ -37,7 +37,7 @@
     <p><strong>City:</strong> <span th:text="${user.city}"></span></p>
     <p><strong>Phone:</strong> <span th:text="${user.phone}"></span></p>
 
-    <table>
+    <table id="orderTable" class="table table-striped">
         <thead>
         <tr>
             <th>Order ID</th>
@@ -50,10 +50,10 @@
         <tbody>
         <tr th:each="order : ${orders}">
             <td th:text="${order.id_order}"></td>
-            <td th:text="${order.id_book}"></td>
-            <td th:text="${#dates.format(order.order_date, 'yyyy-MM-dd')}"></td>
-            <td th:text="${#dates.format(order.return_by_date, 'yyyy-MM-dd')}"></td>
-            <td th:text="${#dates.format(order.return_date, 'yyyy-MM-dd')}"></td>
+            <td><a th:href="@{/book/{id}(id=${order.book.id_book})}" th:text="${order.book.title}">Book Title</a></td>
+            <td th:text="${#dates.format(order.order_date, 'dd-MM-yyyy')}"></td>
+            <td th:text="${#dates.format(order.return_by_date, 'dd-MM-yyyy')}"></td>
+            <td th:text="${#dates.format(order.return_date, 'dd-MM-yyyy')}"></td>
         </tr>
         </tbody>
     </table>
