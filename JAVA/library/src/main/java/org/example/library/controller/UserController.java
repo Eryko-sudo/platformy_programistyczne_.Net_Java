@@ -1,6 +1,8 @@
 package org.example.library.controller;
 
+import org.example.library.model.Order;
 import org.example.library.model.User;
+import org.example.library.repository.OrderRepository;
 import org.example.library.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private OrderRepository orderRepository;
 
     @GetMapping("/getAll")
     @ResponseBody
@@ -81,7 +86,9 @@ public class UserController {
         if (user == null) {
             return "redirect:/login"; // Redirect to login page if user is not logged in
         }
+        List<Order> orders = orderRepository.findAllByid_user(user.getId_user());
         model.addAttribute("user", user);
+        model.addAttribute("orders", orders);
         return "profile";
     }
 }
